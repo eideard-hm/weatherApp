@@ -1,1 +1,6 @@
-<app-search></app-search>
+<app-search (submited)="onSearch($event)"></app-search>
+
+<app-card *ngIf="weather$ | async as weather"
+          [weather]="weather"
+          [imgUrlWeather]="imgUrlWeather">
+</app-card>

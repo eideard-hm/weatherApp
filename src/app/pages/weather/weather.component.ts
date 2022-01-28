@@ -1,4 +1,7 @@
+import { Weather } from './../../interfaces/weather.interface';
 import { Component, OnInit } from '@angular/core';
+import { WeatherService } from '../../services/weather.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-weather',
@@ -7,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WeatherComponent implements OnInit {
 
-  constructor() { }
+  weather$!: Observable<Weather>;
+  imgUrlWeather = 'https://openweathermap.org/img/wn';
+
+  constructor(private weatherService: WeatherService) { }
 
   ngOnInit(): void {
+   console.log('Hello');
+  }
+
+  onSearch(city: string) {
+    this.weather$ = this.weatherService.getWeatherByCity(city);
   }
 
 }
