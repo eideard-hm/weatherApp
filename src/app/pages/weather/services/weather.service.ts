@@ -23,8 +23,8 @@ export class WeatherService {
   getWeatherByCoords(coords: Coord): Observable<Weather> {
     return this.http.get<Weather>(`${this._apiUrl}/weather`, {
       params: {
-        lat: coords.lat,
-        lon: coords.lon
+        lat: coords.latitude,
+        lon: coords.longitude
       }
     });
   }

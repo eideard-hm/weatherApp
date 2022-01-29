@@ -19,8 +19,8 @@ export interface Clouds {
 }
 
 export interface Coord {
-  lon: number;
-  lat: number;
+  longitude: number;
+  latitude: number;
 }
 
 export interface Main {
