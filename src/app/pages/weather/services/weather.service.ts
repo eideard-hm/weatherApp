@@ -1,8 +1,8 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Coord, Weather } from '@app/interfaces/weather.interface';
 import { environment } from '@env/environment';
 import { Observable } from 'rxjs';
-import { Weather, Coord } from '../interfaces/weather.interface';
 
 
 @Injectable({
@@ -15,23 +15,17 @@ export class WeatherService {
 
   constructor(private http: HttpClient) { }
 
-  getWeatherByCity(city : string): Observable<Weather>{
+  getWeatherByCity(city: string): Observable<Weather> {
     return this.http.get<Weather>(`${this._apiUrl}/weather`, {
-      params: {
-        q: city,
-        appid: this._apiKey,
-        unit: 'metric'
-      }
+      params: { q: city }
     });
   }
 
-  getWeatherByCoords(coords : Coord): Observable<Weather>{
+  getWeatherByCoords(coords: Coord): Observable<Weather> {
     return this.http.get<Weather>(`${this._apiUrl}/weather`, {
       params: {
         lat: coords.lat,
-        lon: coords.lon,
-        appid: this._apiKey,
-        unit: 'metric'
+        lon: coords.lon
       }
     });
   }
