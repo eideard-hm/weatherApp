@@ -10,7 +10,6 @@ import { Observable } from 'rxjs';
 })
 export class WeatherService {
 
-  private readonly _apiKey = environment.openWeather.key;
   private readonly _apiUrl = environment.openWeather.url;
 
   constructor(private http: HttpClient) { }

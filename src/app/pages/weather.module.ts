@@ -18,7 +18,7 @@ import { WeatherInterceptor } from './weather/interceptors/weather.interceptor';
     WeatherComponent,
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: WeatherInterceptor, multi: true}
+    { provide: HTTP_INTERCEPTORS, useClass: WeatherInterceptor, multi: true }
   ]
 })
 export class WeatherModule { }

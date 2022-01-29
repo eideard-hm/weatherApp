@@ -11,11 +11,10 @@ import { environment } from '@env/environment';
 @Injectable()
 export class WeatherInterceptor implements HttpInterceptor {
 
-  constructor() {}
+  constructor() { }
 
-  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-    console.log(request);
     const cloneRequest = request.clone({
       params: request.params.appendAll({
         appid: environment.openWeather.key,
